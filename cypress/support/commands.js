@@ -1,25 +1,43 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('registrationAccountNumber', (email, name, password, confirmationPassword) => {
+    cy.get('div[class="card__register"] input[name="email"]').type(email, { force: true });
+    cy.get('div[class="card__register"] input[name="name"]').type(name, { force: true });
+    cy.get('div[class="card__register"] input[name="password"]').type(password, { force: true, log: false });
+    cy.get('div[class="card__register"] input[name="passwordConfirmation"]').type(confirmationPassword, { force: true, log: false });
+    
+    cy.get('div[class="card__register"] button[type="submit"]').click({force: true});
+});
+
+Cypress.Commands.add('registrationBalance', (email, name, password, confirmationPassword, balance) => {
+    cy.get('div[class="card__register"] input[name="email"]').type(email, { force: true });
+    cy.get('div[class="card__register"] input[name="name"]').type(name, { force: true });
+    cy.get('div[class="card__register"] input[name="password"]').type(password, { force: true, log: false });
+    cy.get('div[class="card__register"] input[name="passwordConfirmation"]').type(confirmationPassword, { force: true, log: false });
+
+    balance ? cy.get('#toggleAddBalance').click({ force: true }) : null;
+
+    cy.get('div[class="card__register"] button[type="submit"]').click({force: true});
+});
+
+Cypress.Commands.add('registrationNoFields', (email, name, password, confirmationPassword) => {
+    
+    if (email === '') {
+        cy.get('div[class="card__register"] input[name="email"]').clear({ force: true });
+    } else {
+        cy.get('div[class="card__register"] input[name="email"]').type(email, { force: true });
+    }
+
+    cy.get('div[class="card__register"] input[name="name"]').type(name, { force: true });
+
+    if (password === '') {
+        cy.get('div[class="card__register"] input[name="password"]').clear({ force: true }); 
+    } else {
+        cy.get('div[class="card__register"] input[name="password"]').type(password, { force: true, log: false });
+    }
+    if (confirmationPassword === '') {
+        cy.get('div[class="card__register"] input[name="passwordConfirmation"]').clear( { force: true} ); 
+    } else {
+        cy.get('div[class="card__register"] input[name="passwordConfirmation"]').type(confirmationPassword, { force: true, log: false });
+    }
+
+    cy.get('div[class="card__register"] button[type="submit"]').click( {force: true} );
+});
