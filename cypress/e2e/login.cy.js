@@ -13,9 +13,7 @@ describe('Login Page Test', () => {
             cy.registrationBalance(email, 'Gabriel', password, password, true);
             cy.reload();
 
-            cy.get('div[class="card__login"] input[name="email"]').type(email);
-            cy.get('div[class="card__login"] input[name="password"]').type(password);
-            cy.get('.otUnI').click({ force: true });
+            cy.login(email, password);
             
             cy.url().should('be.equal', `${Cypress.config("baseUrl")}/home`);
         });
@@ -23,24 +21,27 @@ describe('Login Page Test', () => {
 
     context('Errors Login', () => {
         it('should not authorized the access for users not registered', () => {
-            cy.get('div[class="card__login"] input[name="email"]').type('emailnaocadastrado@teste.com');
-            cy.get('div[class="card__login"] input[name="password"]').type('error123');
-            cy.get('.otUnI').click({ force: true });
+            cy.login('emailnaocadastrado@teste.com', 'error123');
 
-            cy.get('#modalText').should('be.visible').and('contain', 'Usuário ou senha inválido.');
+            cy.get('#modalText')
+                .should('be.visible')
+                .and('contain', 'Usuário ou senha inválido.');
         });
 
         it('should display an error message when not filling in the email field', () => {
-            cy.get('div[class="card__login"] input[name="password"]').type(password);
-            cy.get('.otUnI').click({ force: true });
-            
-            cy.get('.kOeYBn > .input__warging').should('have.text', 'É campo obrigatório');
+            cy.login('', password);
+
+            cy.get('.kOeYBn > .input__warging')
+                .should('be.visible')
+                .and('have.text', 'É campo obrigatório');        
         });
+        
         it('should display an error message when not filling in the password field', () => {
-            cy.get('div[class="card__login"] input[name="email"]').type(email);
-            cy.get('.otUnI').click({ force: true });
-            
-            cy.get('.kOeYBn > .input__warging').should('have.text', 'É campo obrigatório');
+            cy.login(email, '');
+
+            cy.get('.kOeYBn > .input__warging')
+                .should('be.visible')
+                .and('have.text', 'É campo obrigatório');
         });
     });
 });
