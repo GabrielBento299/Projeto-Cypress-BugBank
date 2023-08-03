@@ -1,6 +1,4 @@
 /// <reference types="cypress" />
-
-
 describe('Registration Page Test', () => { 
     beforeEach(() => {
         cy.visit('/');
@@ -13,7 +11,7 @@ describe('Registration Page Test', () => {
 
             cy.get('#modalText')
                 .should('be.visible')
-                .and('contain', ('A conta'));
+                .and('contain', 'A conta');
         });
 
         it('Should crate an account with a balance balance R$ 1.000,00 when activating the option "Create an account with a balance" creates', () => {
@@ -27,6 +25,7 @@ describe('Registration Page Test', () => {
                 .contains('R$ 1.000,00')
                 .should('exist');
         });
+
         it('Should crate an account with a balance R$ 0,00 when leaving the "Create an account with a balance" option inactive', () => {
             cy.registrationBalance('teste@teste.com', 'Gabriel', 'teste123', 'teste123', false);
 
@@ -38,7 +37,6 @@ describe('Registration Page Test', () => {
             cy.get('#textBalance')
                 .contains('R$ 0,00')
                 .should('exist');
-
         });
 
         context('Errors', () => {
