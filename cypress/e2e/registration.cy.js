@@ -3,7 +3,7 @@
 
 describe('Registration Page Test', () => { 
     beforeEach(() => {
-        cy.visit('https://bugbank.netlify.app/');
+        cy.visit('/');
         cy.get('.ihdmxA').click();
     });
 
