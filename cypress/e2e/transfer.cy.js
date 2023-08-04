@@ -6,22 +6,18 @@ describe('Transfer Page Teste', () => {
     let accountNumber;
     let digitNumber;
 
-    beforeEach(() => {
-        cy.registrationBalance(email, 'Gabriel', password, password, true);
-        cy.takeAccount().then(conta => {
-            accountNumber = conta.accountNumber;
-            digitNumber = conta.digit;
-        });
-
-        cy.reload();
-    });
-
     context('Success Transfer', () => {
         beforeEach(() => {
+            cy.registrationBalance(email, 'Gabriel', password, password, true);
+            cy.takeAccount().then(conta => {
+                accountNumber = conta.accountNumber;
+                digitNumber = conta.digit;
+            });
+
             cy.registrationBalance('teste@teste.com', 'Teste', password, password, true);
-            cy.reload();
             cy.login('teste@teste.com', password);
         });
+
         it('should todo with success transfer when the o balance for equal or bigger', () => {
             cy.get('#textBalance')
                 .contains('R$ 1.000,00')
@@ -46,8 +42,10 @@ describe('Transfer Page Teste', () => {
 
     context('Errors Transfer', () => {
         beforeEach(() => {
-            cy.login(email, password);
-            cy.visit('/transfer');
+            cy.session('teste', () => {
+                cy.registrationBalance(email, 'Gabriel', password, password, true);
+                cy.login(email, password);
+            });
         });
         
         it('should display an message when to do a transfer for account invalid ou nonexistent', () => {
