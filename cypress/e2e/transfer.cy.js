@@ -7,7 +7,6 @@ describe('Transfer Page Teste', () => {
     let digitNumber;
 
     beforeEach(() => {
-        cy.visit('/');
         cy.registrationBalance(email, 'Gabriel', password, password, true);
         cy.takeAccount().then(conta => {
             accountNumber = conta.accountNumber;
@@ -19,23 +18,16 @@ describe('Transfer Page Teste', () => {
 
     context('Success Transfer', () => {
         beforeEach(() => {
-            cy.visit('/');
             cy.registrationBalance('teste@teste.com', 'Teste', password, password, true);
             cy.reload();
             cy.login('teste@teste.com', password);
         });
         it('should todo with success transfer when the o balance for equal or bigger', () => {
-
             cy.get('#textBalance')
                 .contains('R$ 1.000,00')
                 .should('exist');
-
-            cy.get('#btn-TRANSFERÊNCIA').click();
-
-            cy.get('input[name="accountNumber"]').type(accountNumber);
-            cy.get('input[name="digit"]').type(digitNumber);
-            cy.get('input[name="transferValue"]').type(1000);
-            cy.get('button[type="submit"]').click();
+                
+            cy.transfer(accountNumber, digitNumber, 1000);
         });
         
         it('should display an message when accomplish a transfer with success and debited the value account', () => {
@@ -43,12 +35,7 @@ describe('Transfer Page Teste', () => {
                 .contains('R$ 1.000,00')
                 .should('exist');
             
-            cy.get('#btn-TRANSFERÊNCIA').click();
-
-            cy.get('input[name="accountNumber"]').type(accountNumber, { force: true });
-            cy.get('input[name="digit"]').type(digitNumber);
-            cy.get('input[name="transferValue"]').type(500);
-            cy.get('button[type="submit"]').click();
+            cy.transfer(accountNumber, digitNumber, 500);
 
             cy.visit('/home');
             cy.get('#textBalance')
@@ -59,17 +46,12 @@ describe('Transfer Page Teste', () => {
 
     context('Errors Transfer', () => {
         beforeEach(() => {
-            cy.visit('/');
             cy.login(email, password);
-            
             cy.visit('/transfer');
         });
         
         it('should display an message when to do a transfer for account invalid ou nonexistent', () => {
-            cy.get('input[name="accountNumber"]').type('123');
-            cy.get('input[name="digit"]').type(9);
-            cy.get('input[name="transferValue"]').type(500);
-            cy.get('button[type="submit"]').click();
+            cy.transfer('123', 9, 500);
 
             cy.get('#modalText')
                 .should('be.visible')
@@ -77,10 +59,7 @@ describe('Transfer Page Teste', () => {
         });
 
         it('should display an message when to do a transfer with value equal in 0 or smaller', () => {
-            cy.get('input[name="accountNumber"]').type('123');
-            cy.get('input[name="digit"]').type(9);
-            cy.get('input[name="transferValue"]').type(0);
-            cy.get('button[type="submit"]').click();
+            cy.transfer('123', 9, 0);
 
             cy.get('#modalText')
                 .should('be.visible')

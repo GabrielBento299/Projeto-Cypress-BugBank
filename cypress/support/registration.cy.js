@@ -8,6 +8,8 @@ Cypress.Commands.add('registrationAccountNumber', (email, name, password, confir
 });
 
 Cypress.Commands.add('registrationBalance', (email, name, password, confirmationPassword, balance) => {
+    cy.visit('/');
+    
     cy.get('div[class="card__register"] input[name="email"]').type(email, { force: true });
     cy.get('div[class="card__register"] input[name="name"]').type(name, { force: true });
     cy.get('div[class="card__register"] input[name="password"]').type(password, { force: true, log: false });

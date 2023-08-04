@@ -12,3 +12,12 @@ Cypress.Commands.add('takeAccount', () => {
         return account
       });
 });
+
+Cypress.Commands.add('transfer', (accountNumber, digitNumber, value) => {
+  cy.visit('/transfer');
+
+  cy.get('input[name="accountNumber"]').type(accountNumber);
+  cy.get('input[name="digit"]').type(digitNumber);
+  cy.get('input[name="transferValue"]').type(value);
+  cy.get('button[type="submit"]').click();
+});
