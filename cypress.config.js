@@ -8,7 +8,5 @@ module.exports = defineConfig({
       requestMode: true,
     },
     video: false,
-    experimentalRunAllSpecs: true,
-    experimentalSessionSupport: true
   },
 });

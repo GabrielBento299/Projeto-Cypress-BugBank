@@ -6,6 +6,25 @@ describe('Extract Page Test', () => {
     let accountNumber;
     let digitNumber;
 
+    context('Extract', () => {
+        beforeEach(() => {
+            cy.registrationBalance(email, 'Gabriel', password, password, true);
+            cy.login(email, password);
+        });
+    
+        it('should display the balance available in time', () => {
+            cy.visit('/home');
+            cy.get('#textBalance')
+                .contains('R$ 1.000,00')
+                .should('exist');
+    
+            cy.visit('/bank-statement');
+            cy.get('#textBalanceAvailable')
+                .contains('R$ 1.000,00')
+                .should('exist');
+        });
+    });
+
     context('Trasfer Extract', () => {
         beforeEach(() => {
             cy.registrationBalance(email, 'Gabriel', password, password, true);
@@ -34,28 +53,6 @@ describe('Extract Page Test', () => {
                 cy.get('#textTypeTransaction').should('be.visible').and('contain', 'Transferência enviada');
                 cy.get('#textTransferValue').should('not.have.css', 'color', '#ff0000');
             });
-        });
-    });
-
-    context('Extract', () => {
-        beforeEach(() => {
-            cy.session('teste', () => {
-                cy.registrationBalance(email, 'Gabriel', password, password, true);
-                cy.reload();
-                cy.login(email, password);
-            });
-        });
-    
-        it('should display the balance available in time', () => {
-            cy.visit('/home');
-            cy.get('#textBalance')
-                .contains('R$ 1.000,00')
-                .should('exist');
-    
-            cy.visit('/bank-statement');
-            cy.get('#textBalanceAvailable')
-                .contains('R$ 1.000,00')
-                .should('exist');
         });
     });
 });
