@@ -1,4 +1,5 @@
 Cypress.Commands.add('login', (email, password) => {
+    cy.visit('/')
     const emailInput = cy.get('div[class="card__login"] input[name="email"]');
     const passwordInput = cy.get('div[class="card__login"] input[name="password"]');
 

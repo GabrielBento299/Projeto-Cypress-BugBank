@@ -1,5 +1,4 @@
 Cypress.Commands.add('takeAccount', () => {
-
     cy.get('#modalText').invoke('text').then((text) => { // Extrai o texto do modal e faz a manipulação
 
         const regex = /A conta (\d{1,3})-(\d) foi criada com sucesso/g // Regex para buscar o padrão esperado
@@ -16,7 +15,7 @@ Cypress.Commands.add('takeAccount', () => {
 Cypress.Commands.add('transfer', (accountNumber, digitNumber, value) => {
   cy.visit('/transfer');
 
-  cy.get('input[name="accountNumber"]').type(accountNumber);
+  cy.get('input[name="accountNumber"]').type(accountNumber, {force: true});
   cy.get('input[name="digit"]').type(digitNumber);
   cy.get('input[name="transferValue"]').type(value);
   cy.get('button[type="submit"]').click();
