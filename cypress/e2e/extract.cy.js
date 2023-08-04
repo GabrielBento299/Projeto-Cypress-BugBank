@@ -37,7 +37,7 @@ describe('Extract Page Test', () => {
         });
     });
 
-    context('Other', () => {
+    context('Extract', () => {
         beforeEach(() => {
             cy.session('teste', () => {
                 cy.registrationBalance(email, 'Gabriel', password, password, true);
