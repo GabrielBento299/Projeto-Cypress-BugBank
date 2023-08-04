@@ -13,15 +13,19 @@ describe('Transfer Page Teste', () => {
             accountNumber = conta.accountNumber;
             digitNumber = conta.digit;
         });
+
         cy.reload();
     });
 
     context('Success Transfer', () => {
-        it('should todo with success transfer when the o balance for equal or bigger', () => {
+        beforeEach(() => {
             cy.visit('/');
             cy.registrationBalance('teste@teste.com', 'Teste', password, password, true);
             cy.reload();
             cy.login('teste@teste.com', password);
+        });
+        it('should todo with success transfer when the o balance for equal or bigger', () => {
+
             cy.get('#textBalance')
                 .contains('R$ 1.000,00')
                 .should('exist');
@@ -35,18 +39,13 @@ describe('Transfer Page Teste', () => {
         });
         
         it('should display an message when accomplish a transfer with success and debited the value account', () => {
-            cy.visit('/');
-            cy.registrationBalance('teste@teste.com', 'Teste', password, password, true);
-            cy.reload();
-            cy.login('teste@teste.com', password);
-
             cy.get('#textBalance')
                 .contains('R$ 1.000,00')
                 .should('exist');
             
             cy.get('#btn-TRANSFERÊNCIA').click();
 
-            cy.get('input[name="accountNumber"]').type(accountNumber);
+            cy.get('input[name="accountNumber"]').type(accountNumber, { force: true });
             cy.get('input[name="digit"]').type(digitNumber);
             cy.get('input[name="transferValue"]').type(500);
             cy.get('button[type="submit"]').click();
@@ -60,7 +59,9 @@ describe('Transfer Page Teste', () => {
 
     context('Errors Transfer', () => {
         beforeEach(() => {
+            cy.visit('/');
             cy.login(email, password);
+            
             cy.visit('/transfer');
         });
         
