@@ -1,7 +1,9 @@
 Funcionalidade de Extrato:
 
-Como um cliente do banco BugBank, 
+Como um cliente do banco BugBank,
+<Br>
 Quero verificar o saldo disponível na minha conta, ver os detalhes de todas as transações, 
+<Br>
 Para que eu possa acompanhar meus gastos e verificar todas as movimentações na minha conta.
     
       Cenário: Exibir saldo disponível no momento
@@ -25,7 +27,9 @@ Para que eu possa acompanhar meus gastos e verificar todas as movimentações na
 Funcionalidade de Login:
 
 Como um cliente do banco BugBank, 
+<Br>
 Quero poder fazer login (autenticação),  
+<Br>
 para garantir a segurança do meu acesso e receber feedback claro em caso de erros.
 
     Cenário: Login com sucesso e redirecionar para Home Page
@@ -56,7 +60,9 @@ para garantir a segurança do meu acesso e receber feedback claro em caso de err
 Funcionalidade de Cadastro: 
 
 Como um novo cliente do banco BugBank, 
+<Br>
 Quero me cadastrar no sistema, receber uma conta com um número exclusivo e opções para criar a conta com um saldo inicial de R$ 1.000,00 ou R$ 0,00,
+<Br>
 Para que eu possa criar uma conta personalizada com facilidade e segurança.
 
     Cenário: Cadastrar conta com sucesso e exibir número da conta criada
@@ -104,7 +110,9 @@ Para que eu possa criar uma conta personalizada com facilidade e segurança.
 Funcionalidade de Transfêrencia
 
 Como um cliente do banco BugBank, 
+<Br>
 Quero poder transferir dinheiro da minha conta para outra conta bancária, 
+<Br>
 Para poder enviar dinheiro a amigos ou familiares, fazer pagamentos ou efetuar outras transações financeiras.
 
     Cenário: Transferência com sucesso quando o saldo é igual ou maior que o valor para transferir
