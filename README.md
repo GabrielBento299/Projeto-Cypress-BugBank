@@ -8,17 +8,17 @@
 ## Caso de Teste com GHERKIN: [TestCase](testCase.md)
 
 ## Funcionalidade de Extrato
-- Deve exibir o saldo disponível no momento
-- Deve exibir "-" quando a transação for sem comentário
-- Deve exibir que cada transação exibe a data em que foi feita o tipo de transação e o valor
+- ✔ Deve exibir o saldo disponível no momento
+- ✔ Deve exibir "-" quando a transação for sem comentário
+- ✔ Deve exibir que cada transação exibe a data em que foi feita o tipo de transação e o valor
   
 ![transfer cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/90354cd3-5ef9-4c5f-9450-272a2a13e009)
 
 ## Funcionalidade de Login
-- Deve fazer o login com sucesso e redirecionar para Home Page
-- Deve exibir menssagem para para usuários inválidos ou não cadastrados
-- Deve exibir uma mensagem de erro ao não preencher o campo de e-mail
-- Deve exibir uma mensagem de erro ao não preencher o campo de senha
+- ✔ Deve fazer o login com sucesso e redirecionar para Home Page
+- ✔ Deve exibir menssagem para para usuários inválidos ou não cadastrados
+- ✔ Deve exibir uma mensagem de erro ao não preencher o campo de e-mail
+- ✔ Deve exibir uma mensagem de erro ao não preencher o campo de senha
 
 ![login cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/2a8e820d-f0cf-423d-929f-df652ab1bef0)
 
@@ -33,10 +33,10 @@
 ![registration cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/43f1c5ea-5577-41f3-ae0c-b8905409387b)
 
 ## Funcionalidade de Transferencia
-- Deve fazer com sucesso a transferência quando o saldo for igual ou maior que valor para transferir
-- Deve exibir uma mensagem quando realizar uma transferência com sucesso e debitar o valor da conta
-- Deve exibir uma mensagem quando fizer uma transferência para conta inválida ou inexistente
-- Deve exibir uma mensagem quando fizer uma transferência com valor igual a 0 ou menor
+- ✔ Deve fazer com sucesso a transferência quando o saldo for igual ou maior que valor para transferir
+- ✔ Deve exibir uma mensagem quando realizar uma transferência com sucesso e debitar o valor da conta
+- ✔ Deve exibir uma mensagem quando fizer uma transferência para conta inválida ou inexistente
+- ✔Deve exibir uma mensagem quando fizer uma transferência com valor igual a 0 ou menor
 
 ![transfer cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/93fe56f4-be5e-40e9-b533-aa6a94af1bfa)
 
