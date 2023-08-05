@@ -5,6 +5,8 @@
 
 ### [Site das regras de negócio](https://bugbank.netlify.app/requirements)
 
+## Caso de Teste com GHERKIN: [TestCase](testCase.md)
+
 ## Funcionalidade de Extrato
 - Deve exibir o saldo disponível no momento
 - Deve exibir "-" quando a transação for sem comentário
