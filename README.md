@@ -6,14 +6,10 @@
 ### [Site das regras de negócio](https://bugbank.netlify.app/requirements)
 
 ## Funcionalidade de Extrato
-![extract cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/9c512add-4907-4320-bc95-24d03a67d864)
+![transfer cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/90354cd3-5ef9-4c5f-9450-272a2a13e009)
 
 ## Funcionalidade de Login
-![login cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/cdc7a6b6-6185-4102-ad45-8bc50a457e44)
-
-## Funcionalidade de Transferencia
-![transfer cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/393d66eb-8d6c-43f4-b2e4-65e12c3e37b5)
-
+![login cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/2a8e820d-f0cf-423d-929f-df652ab1bef0)
 
 ## Funcionalidade de Cadastro
 - ✔ Deve cadastrar a conta com sucesso e exibir o número da conta criada
@@ -23,9 +19,13 @@
 - ✔ Deve exibir uma mensagem de erro ao não preencher o campo de e-mail
 - ✔ Deve exibir uma mensagem de erro ao não preencher o campo de senha
   
-![registration cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/f9c67202-f1c6-4bd2-8d9d-5df21cf56cc5)
+![registration cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/43f1c5ea-5577-41f3-ae0c-b8905409387b)
 
- ![Captura de tela 2023-08-04 181134](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/14da1e68-e46c-4fe5-873c-a1b6f9d656fb)
+## Funcionalidade de Transferencia
+![transfer cy js](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/93fe56f4-be5e-40e9-b533-aa6a94af1bfa)
+
+![Captura de tela 2023-08-04 181134 (2)](https://github.com/GabrielBento299/Projeto-Cypress-BugBank/assets/86307663/8de3f37b-4830-402e-a3ed-a3e458c9b0d3)
+
 
 ## Pré-requisitos:
 - [NodeJS](https://nodejs.org/en/download/ "NodeJS")
