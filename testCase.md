@@ -19,7 +19,7 @@ Para que eu possa acompanhar meus gastos e verificar todas as movimentações na
       Quando acesso a funcionalidade de extrato
       Então devo ver a data, tipo de transação e valor de cada transação listada
 
-<----------------------------------------------------------------------------------------->
+<------------------------------------------------------------------------------><------------------------------------------------------------------------->
 
 
 Funcionalidade de Login:
@@ -50,7 +50,7 @@ para garantir a segurança do meu acesso e receber feedback claro em caso de err
     E deixo o campo de senha em branco
     Então devo ver uma mensagem de erro informando que o campo de senha é obrigatório
 
-<----------------------------------------------------------------------------------------->
+<------------------------------------------------------------------------------><------------------------------------------------------------------------->
 
 
 Funcionalidade de Cadastro: 
@@ -98,7 +98,7 @@ Para que eu possa criar uma conta personalizada com facilidade e segurança.
     E deixo o campo de senha em branco
     Então devo ver uma mensagem de erro informando que o campo de senha é obrigatório
 
-<----------------------------------------------------------------------------------------->
+<------------------------------------------------------------------------------><------------------------------------------------------------------------->
 
 
 Funcionalidade de Transfêrencia
@@ -126,4 +126,4 @@ Para poder enviar dinheiro a amigos ou familiares, fazer pagamentos ou efetuar o
     Dado que estou logado na minha conta bancária
     Quando acesso a funcionalidade de transferência
     E preencho corretamente os campos de conta de destino e valor a ser transferido
-     E preencho corretamente os campos de conta de destino e valor a ser transfer
+    E preencho corretamente os campos de conta de destino e valor a ser transfer
